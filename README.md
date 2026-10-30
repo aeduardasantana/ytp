@@ -3,9 +3,9 @@
 Portal público: https://interatividade.compassrosesystems.com.br/
 
 ## Arquitetura de produtos
-- **As Alianças**: UM jogo narrativo principal, planejado com 8 mundos (Jardim, Noé, Abraão, Patriarcas, Moisés, Davi, Cristo, Igreja) e 40 fases. Todos os mundos pertencem ao mesmo jogo, não são jogos independentes. Jogo NÃO implementado neste repositório até a presente versão do portal.
-- **Minijogos**: títulos independentes de sessões curtas (datilologia, memória, lógica, personagens bíblicos e puzzles originais). Aparecem no catálogo somente se registrados em `games.json`. Jogos planejados exibem **EM CRIAÇÃO**, sem botão funcional.
-- **Portal das Estrelas**: único minijogo já jogável nesta home, com controles touch/teclado, pausa e manual. A carta do catálogo aponta para `#mini`, sem criar segundo jogo.
+- **As Alianças**: UM jogo narrativo principal, planejado com 8 mundos (Jardim, Noé, Abraão, Patriarcas, Moisés, Davi, Cristo, Igreja) e 40 fases. Todos os mundos pertencem ao mesmo jogo, não são jogos independentes. Página exclusiva de apresentação `games/as-aliancas/index.html` (sem gameplay ainda).
+- **Minijogos**: títulos independentes de sessões curtas (datilologia, memória, lógica, personagens bíblicos e puzzles originais). Cada título tem sua própria página em `games/<slug>/`, aberta pelo catálogo da home. Jogos planejados exibem **EM CRIAÇÃO**, sem botão funcional. A home apresenta, nunca hospeda a área de gameplay.
+- **Portal das Estrelas**: jogo de exploração com página própria `games/portal-das-estrelas/index.html`, controles touch/teclado, pausa e manual. Não há tabuleiro incorporado na home.
 - **Cronograma público**: `roadmap.json` traz marcos e status, `roadmap.js` os renderiza. Datas somente quando confirmadas; não publicar previsões ou percentual de progresso fictícios.
 
 ## Arquivos do portal
@@ -15,7 +15,7 @@ Portal público: https://interatividade.compassrosesystems.com.br/
 1. Desenvolver em `games/<slug>/index.html` e testar jogabilidade, regras, direitos, acessibilidade, mouse e touch.
 2. Acrescentar objeto em `games.json`: `id,title,description,symbol,category,art,tag,status,url`. Categorias atuais: `datilologia`, `biblia` e `puzzle`.
 3. Enquanto for ideia ou protótipo não publicado: `status: "planned"` sem URL. Quando a página `./games/<slug>/` existir e estiver testada: `status: "live"`, URL relativa segura e verificada. A home renderiza automaticamente ▶ JOGAR apenas em `live`.
-4. A carta de Portal das Estrelas usa excepcionalmente `url: "#mini"` porque o jogo já existe na própria home.
+4. O Portal das Estrelas está em `./games/portal-das-estrelas/`, com `game.js` independente. A home não carrega o motor do jogo.
 5. Não reaproveitar sprites, arte, músicas, marca ou apresentação visual de Tetris, Nintendo e outros terceiros sem licença. Os jogos inspirados em puzzles devem usar mecânicas/identidade originais.
 6. A precisão da datilologia e da Libras exige revisão especializada e assets próprios/licenciados. Quizzes católicos devem conferir referências do acervo Caminhos da Palavra e ter enunciados originais.
 
@@ -35,3 +35,6 @@ Plano de produção de As Alianças: https://docs.google.com/document/d/1NF2NOfR
 Documentação oficial Playables: https://developers.google.com/youtube/gaming/playables
 
 A versão web e a versão Playables de cada jogo devem ter adaptadores de salvamento apropriados, sem prometer sincronização entre eles.
+
+## Páginas independentes e regra editorial da home
+A decisão de arquitetura é: **home = apresentação, notícias, roadmap e catálogo; cada jogo = URL própria**. A home usa `portal.js` apenas para o catálogo. O motor do Portal das Estrelas foi isolado em `games/portal-das-estrelas/game.js`; As Alianças tem página descritiva e status de produção; os quatro jogos de datilologia já possuem páginas específicas. As páginas internas apontam de volta ao catálogo. Não reincorporar jogo na home em refatorações futuras.
