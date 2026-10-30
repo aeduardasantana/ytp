@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#081324">
+<meta name="description" content="Soletra Palavras — jogo interativo do alfabeto manual da Libras com letras do português no Interatividade.">
+<title>Soletra Palavras | Interatividade</title>
+<link rel="stylesheet" href="../alfabeto/shared.css"></head>
+<body data-game="soletra">
+<a href="#main" class="skip">Pular para o jogo</a>
+<header class="top"><div class="wrap">
+<a href="../../" class="brand">✳ INTER<b>ATIVIDADE</b></a>
+<nav class="topnav" aria-label="Navegação"><a href="../../#arcade">← ARCADE</a><a href="https://alfabetolibras.compassrosesystems.com.br/" target="_blank" rel="noopener noreferrer">CONSULTAR ALFABETO ↗</a></nav>
+</div></header>
+<main id="main" class="wrap">
+<section class="intro">
+<p class="eyebrow">✦ MINIJOGO DE DATILOLOGIA · PALAVRAS CURTAS · 3 FASES</p>
+<h1>Soletra <em>Palavras</em></h1>
+<p class="lead">Monte uma palavra do universo cristão escolhendo as representações manuais de suas letras. Uma partida rápida, feita para ser jogada no celular ou PC.</p>
+<div class="meta"><span>SEM CRONÔMETRO OBRIGATÓRIO</span><span>3 FASES</span><span>PORTUGUÊS + ALFABETO MANUAL</span></div>
+</section>
+<section class="arcade" aria-label="Área do jogo">
+<div class="hud">
+<div class="stats">
+<div class="stat"><small>FASE</small><strong id="round">01/03</strong></div>
+<div class="stat"><small>PONTOS</small><strong id="score">000</strong></div>
+<div class="stat"><small>TENTATIVAS INCORRETAS</small><strong id="mistakes">00</strong></div>
+</div>
+<div class="controls"><button id="begin" class="btn primary" type="button" disabled>▶ INICIAR</button><button id="pause" class="btn" type="button" disabled>Ⅱ PAUSA</button><button id="help" class="btn" type="button">? MANUAL</button></div>
+</div>
+<p id="message" class="feedback" role="status" aria-live="polite">Carregando o alfabeto manual...</p>
+<div class="game-area"><div id="stage" aria-live="off"><p class="loading">Preparando a experiência...</p></div>
+<div id="curtain" class="paused-curtain" hidden>Ⅱ JOGO PAUSADO</div></div>
+</section>
+<p class="footnote">Este jogo combina letras escritas do português com representações do <strong>alfabeto manual da Libras</strong>; isso não equivale a traduzir palavras para a língua de sinais. Para não simplificar movimentos importantes, a versão inicial não sorteia as letras H, J e Z. As configurações e orientações ainda precisam de revisão pedagógica da versão publicada; a fonte visual é referenciada a partir do projeto Datilologia. <a href="https://alfabetolibras.compassrosesystems.com.br/" target="_blank" rel="noopener noreferrer">Consulte demonstrações em vídeo.</a></p>
+</main>
+<footer class="footer"><div class="wrap"><span>INTERATIVIDADE ✳ JOGOS CURTOS, DESCOBERTAS REAIS</span><a href="../../#arcade">Voltar aos minijogos</a></div></footer>
+<div id="manual-dialog" class="modal-wrap" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
+<h2 id="help-title">COMO JOGAR</h2><p id="manual-text"></p>
+<ul><li><kbd>P</kbd> — pausa / continua</li><li><kbd>R</kbd> — recomeçar partida</li><li><kbd>H</kbd> ou <kbd>?</kbd> — ajuda</li><li><kbd>Esc</kbd> — fechar manual</li><li><kbd>Tab</kbd> — navegar nos botões</li></ul>
+<button id="close-help" class="btn" type="button">✕ FECHAR</button> <button id="help-ok" class="btn primary" type="button">ENTENDI ✓</button>
+</div></div>
+<script src="../alfabeto/shared.js" defer></script>
+</body></html>
