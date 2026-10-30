@@ -22,5 +22,5 @@ function render(data){
  const update=document.getElementById("roadmap-updated");
  if(update)update.textContent="Atualizado em "+new Date((data?.updatedAt||fallback.updatedAt)+"T12:00:00").toLocaleDateString("pt-BR")+". Datas podem mudar; o lançamento no YouTube depende de aprovação externa.";
 }
-fetch("./roadmap.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Sem cronograma");return r.json()}).then(render).catch(()=>render(fallback));
+fetch(new URL("roadmap.json",document.currentScript?.src||location.href),{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("Sem cronograma");return r.json()}).then(render).catch(()=>render(fallback));
 })();
