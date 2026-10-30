@@ -2,13 +2,13 @@
   {
     "id": "portal-estrelas",
     "title": "Portal das Estrelas",
-    "description": "Encontre as quatro estrelas, abra o portal e teste seus reflexos no desafio que já está disponível.",
+    "description": "Explore o mapa, colete quatro estrelas e abra o portal. Jogue na página própria.",
     "symbol": "★",
     "category": "puzzle",
     "art": "mystery",
     "tag": "ARCADE / JOGÁVEL",
     "status": "live",
-    "url": "#mini"
+    "url": "./games/portal-das-estrelas/"
   },
   {
     "id": "pareie-a-letra",
