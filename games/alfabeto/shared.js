@@ -90,7 +90,7 @@
     if(mode==="relampago")drawQuiz();
   }
   function drawPairs(){
-    stage.append(header("Encontre os <b>pares</b>: LETRA ⇄ MÃO (a forma manual aparece à direita)."));
+    stage.append(header("Encontre os pares: LETRA ⇄ MÃO (a forma manual aparece à direita)."));
     const root=el("div","match-layout"), l=el("div","match-group"),r=el("div","match-group");
     l.append(el("h2","","01 — PORTUGUÊS"));r.append(el("h2","","02 — ALFABETO MANUAL"));
     const lg=el("div","card-grid"),rg=el("div","card-grid");
@@ -115,7 +115,7 @@
     draw();
   }
   function drawMemory(){
-    stage.append(header("Vire os cartões e encontre <b>letra + mão</b>. A memória é o seu superpoder!"));
+    stage.append(header("Vire os cartões e encontre letra + mão. A memória é o seu superpoder!"));
     const grid=el("div","memory-grid");
     deck.forEach(card=>{
       const on=matched.has(card.letter),open=on||memoryFlips.includes(card.id);
