@@ -1,0 +1,32 @@
+[
+  {
+    "id": "aliancas",
+    "title": "As Alianças",
+    "description": "Uma aventura pela História da Salvação. Descubra mundos, faça escolhas e vença desafios para continuar a jornada.",
+    "symbol": "✧",
+    "category": "aventura",
+    "art": "alliance",
+    "tag": "HISTÓRIA / AVENTURA",
+    "status": "planned"
+  },
+  {
+    "id": "arca",
+    "title": "A Arca de Noé",
+    "description": "Organize os animais, cuide dos espaços da arca e enfrente os dias de chuva em desafios surpreendentes.",
+    "symbol": "⚓",
+    "category": "desafio",
+    "art": "ark",
+    "tag": "PUZZLE / MISSÕES",
+    "status": "planned"
+  },
+  {
+    "id": "eden",
+    "title": "O Jardim do Éden",
+    "description": "Explore o jardim e seus caminhos. Uma jornada de descobertas e decisões com pequenas missões.",
+    "symbol": "✿",
+    "category": "aventura",
+    "art": "eden",
+    "tag": "EXPLORAÇÃO / HISTÓRIA",
+    "status": "planned"
+  }
+]
