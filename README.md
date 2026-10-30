@@ -1,36 +1,37 @@
-# INTERATIVIDADE — Arcade de jogos educativos
+# INTERATIVIDADE — Portal de jogos retrô originais
 
-Portal estático responsivo de jogos web e aventuras interativas. Código original, inspirado em sensações arcade retrô, sem assets protegidos de marcas de consoles.
+Portal público: https://interatividade.compassrosesystems.com.br/
 
-## Acesso e propósito
-- Projeto: GEB Tecnologia / desenvolvimento de Eduarda Bispo (pessoa física, a ser definido nos termos de licenciamento de cada jogo).
-- Domínio técnico planejado: `https://interatividade.compassrosesystems.com.br/`
-- Hospedagem planejada: diretório `public_html/interatividade`.
-- Este repositório tem um **portal/mostruário**, não um jogo bíblico final nem um Playable submetido ao YouTube.
-- No portal existe um **minijogo real de demonstração**: Portal das Estrelas (4 estrelas e conclusão). As três aventuras bíblicas são apenas anúncios de projetos, marcados **EM CRIAÇÃO**.
+## Arquitetura de produtos
+- **As Alianças**: UM jogo narrativo principal, planejado com 8 mundos (Jardim, Noé, Abraão, Patriarcas, Moisés, Davi, Cristo, Igreja) e 40 fases. Todos os mundos pertencem ao mesmo jogo, não são jogos independentes. Jogo NÃO implementado neste repositório até a presente versão do portal.
+- **Minijogos**: títulos independentes de sessões curtas (datilologia, memória, lógica, personagens bíblicos e puzzles originais). Aparecem no catálogo somente se registrados em `games.json`. Jogos planejados exibem **EM CRIAÇÃO**, sem botão funcional.
+- **Portal das Estrelas**: único minijogo já jogável nesta home, com controles touch/teclado, pausa e manual. A carta do catálogo aponta para `#mini`, sem criar segundo jogo.
+- **Cronograma público**: `roadmap.json` traz marcos e status, `roadmap.js` os renderiza. Datas somente quando confirmadas; não publicar previsões ou percentual de progresso fictícios.
 
-## Como adicionar N jogos
-1. Desenvolva cada jogo como site estático independente em `games/<slug>/index.html`, com seus arquivos isolados.
-2. Acrescente um objeto ao array `games.json` com: `id`, `title`, `description`, `symbol`, `category` (aventura/desafio), `art` (alliance/ark/eden/mystery), `tag`, `status` (planned/live) e `url`.
-3. Só mude para `"status":"live"` se a página realmente funcionar em uma URL relativa `./games/<slug>/`, com HTTPS e testes em celular/PC. O portal libera automaticamente o botão ▶ JOGAR nesse caso.
-4. Verifique áudio, foco, acessibilidade, direitos de imagens e compatibilidade mobile. O conteúdo de Libras e as referências bíblicas precisam de revisão editorial antes da publicação.
+## Arquivos do portal
+`index.html` home e estrutura sem links públicos para o GitHub; `styles.css` identidade retrô original e layout responsivo; `portal.js` catálogo, filtros e minijogo demonstrativo; `games.json` registro do catálogo de minijogos; `roadmap.json` etapas públicas; `roadmap.js` cronograma público; `.github/workflows/deploy.yml` deploy em Locaweb.
 
-## Usabilidade e recursos existentes
-- Teclado: setas ou WASD (movimento); P (pausa/continua); R (reiniciar); H ou ? (manual); M (áudio); Escape (fecha manual); Tab (navegação de botões).
-- Mobile: toques nos botões da interface e direcional.
-- Som opcional, sem som por padrão; nenhum bloqueio por cronômetro.
-- Respeita `prefers-reduced-motion`.
-- Não utiliza recursos externos obrigatórios nem instala dependências.
+## Como adicionar novo minijogo
+1. Desenvolver em `games/<slug>/index.html` e testar jogabilidade, regras, direitos, acessibilidade, mouse e touch.
+2. Acrescentar objeto em `games.json`: `id,title,description,symbol,category,art,tag,status,url`. Categorias atuais: `datilologia`, `biblia` e `puzzle`.
+3. Enquanto for ideia ou protótipo não publicado: `status: "planned"` sem URL. Quando a página `./games/<slug>/` existir e estiver testada: `status: "live"`, URL relativa segura e verificada. A home renderiza automaticamente ▶ JOGAR apenas em `live`.
+4. A carta de Portal das Estrelas usa excepcionalmente `url: "#mini"` porque o jogo já existe na própria home.
+5. Não reaproveitar sprites, arte, músicas, marca ou apresentação visual de Tetris, Nintendo e outros terceiros sem licença. Os jogos inspirados em puzzles devem usar mecânicas/identidade originais.
+6. A precisão da datilologia e da Libras exige revisão especializada e assets próprios/licenciados. Quizzes católicos devem conferir referências do acervo Caminhos da Palavra e ter enunciados originais.
 
-## Publicação via Locaweb
-O workflow `.github/workflows/deploy.yml` usa os secrets do GitHub `HOST`, `USER`, `PASS`. Não coloque valores no repositório nem no Google Drive.
-O script de deploy foi elaborado para FTP/FTPS com a pasta remota `public_html/interatividade/` indicada no painel; **o diretório inicial do usuário FTP e o protocolo real ainda precisam ser validados**. Uma execução bem-sucedida do Actions e uma visita HTTPS validada são os critérios para confirmar o domínio online.
-O workflow publica apenas `index.html`, `styles.css`, `portal.js`, `games.json` e, depois, o diretório `games/` (evitando compartilhar documentos internos).
+## Como atualizar o cronograma
+1. Editar `roadmap.json`, alterando `status`, `state` (`done`, `current`, `planned`), `when` e `description`, além de `updatedAt` quando houver avanço comprovado.
+2. Não marcar protótipo como concluído sem URL e testes. A publicação no YouTube Playables depende de integração do SDK e aprovação externa; nunca anunciar datas do YouTube sem confirmação.
+3. O cronograma é público; não incluir credenciais, links privados ou detalhes internos de equipe.
 
-## Diferenciar portal e YouTube Playables
-O site público serve para conhecer a coleção e jogar versões web. Cada jogo submetido ao YouTube terá um pacote próprio `index.html` e integrará o SDK oficial e a suíte de testes: https://developers.google.com/youtube/gaming/playables/reference/getting_started .
-Portal online não significa inscrição aprovada nem lançamento dentro de Playables.
+## Publicação automatizada
+GitHub Actions `.github/workflows/deploy.yml` publica `index.html`, `styles.css`, `portal.js`, `games.json`, `roadmap.js`, `roadmap.json` e `games/` quando existir.
+Usa segredos `HOST`, `USER`, `PASS` sem compartilhar valores no código. Destino remoto: `public_html/interatividade/`. A confirmação do job FTP não substitui teste do domínio HTTPS.
 
-## Arquivo documental
-Pasta Drive do projeto: https://drive.google.com/drive/folders/17J9F6axkKL9OMGK-KCjw-e5cmIu_j4Kg
-Pesquisa de História da Salvação: acervo Caminhos da Palavra (não modificar as matrizes teológicas de origem).
+## Acompanhamento documental
+Pasta mãe: https://drive.google.com/drive/folders/17J9F6axkKL9OMGK-KCjw-e5cmIu_j4Kg
+Minijogos (12 ideias e critérios): https://drive.google.com/drive/folders/1KmRnxVpSJOtmr7tnHefVKE_XivJKVWF4
+Plano de produção de As Alianças: https://docs.google.com/document/d/1NF2NOfRZUkP8ElekNB-Y1dQOj0qVuL6UwUQPeyY2gTI/edit
+Documentação oficial Playables: https://developers.google.com/youtube/gaming/playables
+
+A versão web e a versão Playables de cada jogo devem ter adaptadores de salvamento apropriados, sem prometer sincronização entre eles.
