@@ -113,19 +113,19 @@ function renderGames(games){
     const bottom=document.createElement("div");bottom.className="card-bottom";
     const tag=document.createElement("span");tag.className="card-tag";tag.textContent=g.tag||"AVENTURA";
     let action;
-    if(g.status==="live"&&typeof g.url==="string"&&/^\.\/games\/[a-z0-9/_-]+\/?$/.test(g.url)){
+    if(g.status==="live"&&typeof g.url==="string"&&(g.url==="#mini"||/^\.\/games\/[a-z0-9/_-]+\/?$/.test(g.url))){
       action=document.createElement("a");action.className="game-link";action.href=g.url;action.textContent="▶ JOGAR";
     }else{action=document.createElement("span");action.className="card-coming";action.textContent="EM BREVE";}
     bottom.append(tag,action);content.append(title,desc,bottom);card.append(art,content);return card;
   });
   $("#games-list").replaceChildren(...cards);
-  $("#catalog-count").textContent=games.filter(g=>g.status==="live").length+" JOGÁVEIS / "+games.length+" UNIVERSOS";
+  $("#catalog-count").textContent=games.filter(g=>g.status==="live").length+" JOGÁVEL / "+games.length+" NO CATÁLOGO";
   if(cards.length===0){const el=document.createElement("p");el.className="loading-card";el.textContent="Ainda não há jogos neste filtro.";$("#games-list").append(el);}
 }
 const fallbackGames=[
-  {id:"aliancas",title:"As Alianças",description:"Uma aventura pela História da Salvação. Descubra mundos, faça escolhas e vença desafios para continuar a jornada.",symbol:"✧",category:"aventura",art:"alliance",tag:"HISTÓRIA / AVENTURA",status:"planned"},
-  {id:"arca",title:"A Arca de Noé",description:"Organize os animais, cuide dos espaços da arca e enfrente os dias de chuva em desafios surpreendentes.",symbol:"⚓",category:"desafio",art:"ark",tag:"PUZZLE / MISSÕES",status:"planned"},
-  {id:"eden",title:"O Jardim do Éden",description:"Explore o jardim e seus caminhos. Uma jornada de descobertas e decisões com pequenas missões.",symbol:"✿",category:"aventura",art:"eden",tag:"EXPLORAÇÃO / HISTÓRIA",status:"planned"}
+  {id:"portal-estrelas",title:"Portal das Estrelas",description:"Recolha estrelas e abra o portal no desafio que já está disponível.",symbol:"★",category:"puzzle",art:"mystery",tag:"ARCADE / JOGÁVEL",status:"live",url:"#mini"},
+  {id:"memoria-maos",title:"Memória das Mãos",description:"Encontre pares entre letras e o alfabeto manual em Libras.",symbol:"✋",category:"datilologia",art:"hands",tag:"MEMÓRIA / LIBRAS",status:"planned"},
+  {id:"ordem-historia",title:"Ordem da História",description:"Organize acontecimentos bíblicos e desbloqueie desafios.",symbol:"⌛",category:"biblia",art:"scripture",tag:"BÍBLIA / LÓGICA",status:"planned"}
 ];
 let catalog=fallbackGames;
 async function loadCatalog(){
@@ -133,7 +133,7 @@ async function loadCatalog(){
     const response=await fetch("./games.json",{cache:"no-cache"});
     if(!response.ok)throw new Error("Catálogo não encontrado");
     const list=await response.json();
-    if(!Array.isArray(list)||!list.every(g=>typeof g.id==="string"&&typeof g.title==="string"&&typeof g.description==="string"&&["aventura","desafio"].includes(g.category)&&["planned","live"].includes(g.status)))throw new Error("Formato inválido");
+    if(!Array.isArray(list)||!list.every(g=>typeof g.id==="string"&&typeof g.title==="string"&&typeof g.description==="string"&&["datilologia","biblia","puzzle"].includes(g.category)&&["planned","live"].includes(g.status)))throw new Error("Formato inválido");
     catalog=list;
   }catch(_){catalog=fallbackGames;}
   renderGames(catalog);
