@@ -11,24 +11,48 @@
     "url": "#mini"
   },
   {
+    "id": "pareie-a-letra",
+    "title": "Pareie a Letra",
+    "description": "Ligue uma letra escrita em português à mão correspondente no alfabeto manual da Libras. Três fases e estrelas.",
+    "symbol": "◈",
+    "category": "datilologia",
+    "art": "hands",
+    "tag": "ASSOCIAÇÃO / BETA",
+    "status": "live",
+    "url": "./games/pareie-a-letra/"
+  },
+  {
     "id": "memoria-maos",
     "title": "Memória das Mãos",
-    "description": "Encontre pares entre letras e configurações do alfabeto manual da Libras.",
+    "description": "Vire cartas e descubra pares de letras e representações manuais. Três fases, sem cronômetro obrigatório.",
     "symbol": "✋",
     "category": "datilologia",
     "art": "hands",
-    "tag": "MEMÓRIA / LIBRAS",
-    "status": "planned"
+    "tag": "MEMÓRIA / BETA",
+    "status": "live",
+    "url": "./games/memoria-das-maos/"
+  },
+  {
+    "id": "soletra-palavras",
+    "title": "Soletra Palavras",
+    "description": "Escolha as mãos na ordem das letras de palavras curtas do contexto cristão. Jogue no seu ritmo.",
+    "symbol": "✦",
+    "category": "datilologia",
+    "art": "hands",
+    "tag": "PALAVRAS / BETA",
+    "status": "live",
+    "url": "./games/soletra-palavras/"
   },
   {
     "id": "letra-relampago",
     "title": "Letra Relâmpago",
-    "description": "Reconheça letras em desafios curtos, com estrelas, combinações e dificuldades diferentes.",
+    "description": "Observe a mão e encontre sua letra escrita entre quatro opções. Ganhe pontos sem pressão de tempo.",
     "symbol": "⚡",
     "category": "datilologia",
     "art": "hands",
-    "tag": "LETRAS / REFLEXOS",
-    "status": "planned"
+    "tag": "RECONHECIMENTO / BETA",
+    "status": "live",
+    "url": "./games/letra-relampago/"
   },
   {
     "id": "ordem-historia",
