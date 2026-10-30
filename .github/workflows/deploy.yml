@@ -1,0 +1,43 @@
+name: Publicar Interatividade na Locaweb
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'styles.css'
+      - 'portal.js'
+      - 'games.json'
+      - 'games/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Obter codigo
+        uses: actions/checkout@v4
+      - name: Validar arquivos do portal
+        run: |
+          test -s index.html
+          test -s styles.css
+          test -s portal.js
+          test -s games.json
+          python3 -m json.tool games.json >/dev/null
+      - name: Preparar pasta publica
+        run: |
+          mkdir -p ./publish
+          cp index.html styles.css portal.js games.json ./publish/
+          if [ -d games ]; then cp -R games ./publish/; fi
+      - name: Enviar para hospedagem (FTP)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASS }}
+          protocol: ftp
+          local-dir: ./publish/
+          server-dir: public_html/interatividade/
+          dangerous-clean-slate: false
