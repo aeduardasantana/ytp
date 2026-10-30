@@ -7,6 +7,8 @@ on:
       - 'styles.css'
       - 'portal.js'
       - 'games.json'
+      - 'roadmap.json'
+      - 'roadmap.js'
       - 'games/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
@@ -25,11 +27,14 @@ jobs:
           test -s styles.css
           test -s portal.js
           test -s games.json
+          test -s roadmap.json
+          test -s roadmap.js
           python3 -m json.tool games.json >/dev/null
+          python3 -m json.tool roadmap.json >/dev/null
       - name: Preparar pasta publica
         run: |
           mkdir -p ./publish
-          cp index.html styles.css portal.js games.json ./publish/
+          cp index.html styles.css portal.js games.json roadmap.json roadmap.js ./publish/
           if [ -d games ]; then cp -R games ./publish/; fi
       - name: Enviar para hospedagem (FTP)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
