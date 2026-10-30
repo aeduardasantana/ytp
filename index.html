@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#081223">
-  <meta name="description" content="Interatividade — uma galáxia de jogos, histórias e desafios. Escolha um universo e entre na aventura.">
-  <meta property="og:title" content="Interatividade | Seu próximo universo começa aqui">
-  <meta property="og:description" content="Uma plataforma de jogos e aventuras interativas.">
+  <meta name="description" content="Interatividade: As Alianças, uma aventura bíblica em desenvolvimento, e minijogos retrô para jogar enquanto isso.">
+  <meta property="og:title" content="Interatividade | As Alianças e Minijogos">
+  <meta property="og:description" content="Acompanhe As Alianças e descubra pequenos jogos retrô.">
   <title>INTERATIVIDADE — Seu próximo universo começa aqui</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
@@ -31,10 +31,10 @@
           <h1>APERTA <span class="gradient-text">START.</span><br>ENTRA NA <span class="gradient-text pink">HISTÓRIA.</span></h1>
           <p class="hero-lead">Não é só assistir. Aqui você explora mundos, toma decisões e desbloqueia descobertas enquanto se diverte.</p>
           <div class="hero-buttons">
-            <a href="#arcade" class="button button-primary">▶ EXPLORAR JOGOS</a>
-            <button class="button button-outline" id="start-portal" type="button">✦ JOGAR O MINI DESAFIO</button>
+            <a href="#aliancas" class="button button-primary">✦ CONHECER AS ALIANÇAS</a>
+            <button class="button button-outline" id="start-portal" type="button">▶ JOGAR DEMONSTRAÇÃO</button>
           </div>
-          <div class="feature-line"><span>✦ SEM INSTALAÇÃO</span><span>✦ CELULAR + PC</span><span>✦ NOVOS MUNDOS EM BREVE</span></div>
+          <div class="feature-line"><span>✦ SEM INSTALAÇÃO</span><span>✦ CELULAR + PC</span><span>✦ ACOMPANHE O CRONOGRAMA</span></div>
         </div>
         <div class="hero-illustration" aria-hidden="true">
           <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
@@ -52,27 +52,65 @@
         </div>
       </section>
 
+      <section class="featured-journey" id="aliancas" aria-labelledby="journey-title">
+        <div class="featured-copy">
+          <p class="eyebrow"><span class="blink-square"></span> NOSSA GRANDE AVENTURA • EM DESENVOLVIMENTO</p>
+          <h2 id="journey-title">AS <em>ALIANÇAS</em></h2>
+          <p class="journey-lead">Uma jornada pela História da Salvação, em um só jogo: explore lugares, supere desafios e acompanhe histórias que se conectam.</p>
+          <div class="journey-chips"><span>8 MUNDOS PLANEJADOS</span><span>40 FASES PREVISTAS</span><span>PROGRESSÃO CONTÍNUA</span></div>
+          <p class="journey-fine">A primeira entrega planejada é um conjunto de cinco fases na Arca de Noé. Os demais mundos chegarão por atualizações, após testes e aprovação.</p>
+          <a class="button button-primary" href="#cronograma">◷ ACOMPANHAR O DESENVOLVIMENTO</a>
+        </div>
+        <div class="journey-map" aria-label="Mundos previstos de As Alianças">
+          <span class="journey-map-kicker">SELECT WORLD / 8</span>
+          <ol class="world-grid">
+            <li><span class="world-glyph" aria-hidden="true">✿</span><strong>01</strong><small>JARDIM</small></li>
+            <li class="world-focus"><span class="world-glyph" aria-hidden="true">⚓</span><strong>02</strong><small>NOÉ</small></li>
+            <li><span class="world-glyph" aria-hidden="true">✦</span><strong>03</strong><small>ABRAÃO</small></li>
+            <li><span class="world-glyph" aria-hidden="true">◈</span><strong>04</strong><small>PATRIARCAS</small></li>
+            <li><span class="world-glyph" aria-hidden="true">≈</span><strong>05</strong><small>MOISÉS</small></li>
+            <li><span class="world-glyph" aria-hidden="true">♛</span><strong>06</strong><small>DAVI</small></li>
+            <li><span class="world-glyph" aria-hidden="true">✧</span><strong>07</strong><small>CRISTO</small></li>
+            <li><span class="world-glyph" aria-hidden="true">❋</span><strong>08</strong><small>IGREJA</small></li>
+          </ol>
+          <p class="world-disclaimer">Mapa de planejamento, ainda não jogável.</p>
+        </div>
+      </section>
+
+      <section class="roadmap-section" id="cronograma" aria-labelledby="roadmap-title">
+        <div class="section-header">
+          <div><p class="eyebrow">// DIÁRIO DE DESENVOLVIMENTO</p><h2 id="roadmap-title">CAMINHO ATÉ O <em>LANÇAMENTO</em></h2></div>
+          <span class="roadmap-caption">MARCO A MARCO</span>
+        </div>
+        <p class="roadmap-lead">Você pode acompanhar a evolução do jogo aqui. As datas serão divulgadas quando cada previsão estiver confirmada — sem contagem regressiva inventada.</p>
+        <ol id="roadmap-list" class="roadmap-list" aria-live="polite">
+          <li class="roadmap-loading">Carregando etapas de produção...</li>
+        </ol>
+        <p class="roadmap-footnote" id="roadmap-updated">Cronograma de desenvolvimento sujeito a ajustes técnicos, editoriais e à avaliação do YouTube.</p>
+      </section>
+
       <section class="arcade-section" id="arcade" aria-labelledby="arcade-title">
         <div class="section-header">
-          <div><p class="eyebrow">// SELEÇÃO DE UNIVERSOS</p><h2 id="arcade-title">ESCOLHA SUA <em>AVENTURA</em></h2></div>
+          <div><p class="eyebrow">// ENQUANTO A GRANDE AVENTURA GANHA VIDA</p><h2 id="arcade-title">MINIJOGOS <em>DO ARCADE</em></h2></div>
           <span id="catalog-count" class="catalog-count">CARREGANDO...</span>
         </div>
         <div class="filter-bar" role="group" aria-label="Filtrar jogos">
           <button class="filter active" data-filter="todos" aria-pressed="true">TODOS</button>
-          <button class="filter" data-filter="aventura" aria-pressed="false">AVENTURA</button>
-          <button class="filter" data-filter="desafio" aria-pressed="false">DESAFIOS</button>
+          <button class="filter" data-filter="datilologia" aria-pressed="false">LIBRAS / LETRAS</button>
+          <button class="filter" data-filter="biblia" aria-pressed="false">HISTÓRIAS / BÍBLIA</button>
+          <button class="filter" data-filter="puzzle" aria-pressed="false">PUZZLES</button>
         </div>
         <div id="games-list" class="game-grid" aria-live="polite">
           <p class="loading-card">Preparando o catálogo de universos...</p>
         </div>
-        <p class="catalog-note">As aventuras sinalizadas como “em criação” ainda não estão disponíveis para jogar. O catálogo crescerá conforme os jogos forem lançados.</p>
+        <p class="catalog-note">Os cartões identificados como “em criação” são ideias de jogos, ainda não disponíveis. O primeiro jogo experimental já pode ser testado logo abaixo.</p>
       </section>
 
       <section class="mini-section" id="mini" aria-labelledby="mini-title">
         <div class="mini-info">
           <p class="eyebrow">◈ BÔNUS • EXPERIÊNCIA INTERATIVA</p>
           <h2 id="mini-title">MISSÃO:<br><em>PORTAL DAS ESTRELAS</em></h2>
-          <p>Antes da próxima aventura, experimente os controles: encontre as quatro estrelas no mapa. Você pode usar o teclado ou tocar nas setas.</p>
+          <p>Nosso jogo experimental já está disponível nesta página: encontre quatro estrelas e abra o portal. Use o teclado ou toque nas setas.</p>
           <div class="mini-stats"><div><small>ESTRELAS</small><strong id="stars-collected">0 / 4</strong></div><div><small>MOVIMENTOS</small><strong id="moves-counter">00</strong></div><div><small>ESTADO</small><strong id="mini-state">PRONTO</strong></div></div>
           <div class="mini-actions"><button id="play-button" type="button" class="button button-primary">▶ INICIAR</button><button id="pause-button" type="button" class="button button-outline" disabled>Ⅱ PAUSAR</button><button id="restart-button" type="button" class="button button-minor">↻ REINICIAR</button></div>
           <div class="mini-hint">TECLADO: ← ↑ → ↓ ou W A S D · P pausa · R reinicia · H ajuda</div>
@@ -104,5 +142,6 @@
     </div>
   </div>
   <script src="./portal.js" defer></script>
+  <script src="./roadmap.js" defer></script>
 </body>
 </html>
