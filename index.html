@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#081223">
-  <meta name="description" content="Interatividade: As Alianças, uma aventura bíblica em desenvolvimento, e minijogos retrô para jogar enquanto isso.">
+  <meta name="description" content="Interatividade é a vitrine dos jogos: explore As Alianças, acompanhe o cronograma e abra os minijogos em suas próprias páginas.">
   <meta property="og:title" content="Interatividade | As Alianças e Minijogos">
   <meta property="og:description" content="Acompanhe As Alianças e descubra pequenos jogos retrô.">
   <title>INTERATIVIDADE — Seu próximo universo começa aqui</title>
@@ -20,8 +20,7 @@
       </a>
       <div class="top-actions">
         <span class="status"><span class="status-dot"></span>PORTAL ONLINE</span>
-        <button class="icon-button" type="button" id="sound-toggle" aria-label="Ativar sons" title="Ativar ou silenciar (M)">♫ <span id="sound-state">OFF</span></button>
-        <button class="icon-button" type="button" id="help-toggle" aria-haspopup="dialog" title="Como usar (H ou ?)">? AJUDA</button>
+        <a class="button button-minor" href="#arcade">VER JOGOS</a>
       </div>
     </header>
     <main id="main">
@@ -29,10 +28,10 @@
         <div class="hero-copy">
           <p class="eyebrow"><span class="blink-square"></span> PLAYER 01 • NOVA AVENTURA</p>
           <h1>APERTA <span class="gradient-text">START.</span><br>ENTRA NA <span class="gradient-text pink">HISTÓRIA.</span></h1>
-          <p class="hero-lead">Não é só assistir. Aqui você explora mundos, toma decisões e desbloqueia descobertas enquanto se diverte.</p>
+          <p class="hero-lead">Conheça nossos jogos, veja o que já está disponível e acompanhe o desenvolvimento das próximas aventuras. Cada jogo abre em sua própria página.</p>
           <div class="hero-buttons">
             <a href="#aliancas" class="button button-primary">✦ CONHECER AS ALIANÇAS</a>
-            <button class="button button-outline" id="start-portal" type="button">▶ JOGAR DEMONSTRAÇÃO</button>
+            <a class="button button-outline" href="./games/portal-das-estrelas/">▶ PORTAL DAS ESTRELAS</a>
           </div>
           <div class="feature-line"><span>✦ SEM INSTALAÇÃO</span><span>✦ CELULAR + PC</span><span>✦ ACOMPANHE O CRONOGRAMA</span></div>
         </div>
@@ -59,7 +58,7 @@
           <p class="journey-lead">Uma jornada pela História da Salvação, em um só jogo: explore lugares, supere desafios e acompanhe histórias que se conectam.</p>
           <div class="journey-chips"><span>8 MUNDOS PLANEJADOS</span><span>40 FASES PREVISTAS</span><span>PROGRESSÃO CONTÍNUA</span></div>
           <p class="journey-fine">A primeira entrega planejada é um conjunto de cinco fases na Arca de Noé. Os demais mundos chegarão por atualizações, após testes e aprovação.</p>
-          <a class="button button-primary" href="#cronograma">◷ ACOMPANHAR O DESENVOLVIMENTO</a>
+          <div class="hero-buttons"><a class="button button-primary" href="./games/as-aliancas/">✦ PÁGINA DO JOGO</a><a class="button button-outline" href="#cronograma">◷ ACOMPANHAR ETAPAS</a></div>
         </div>
         <div class="journey-map" aria-label="Mundos previstos de As Alianças">
           <span class="journey-map-kicker">SELECT WORLD / 8</span>
@@ -103,44 +102,14 @@
         <div id="games-list" class="game-grid" aria-live="polite">
           <p class="loading-card">Preparando o catálogo de universos...</p>
         </div>
-        <p class="catalog-note">Os cartões identificados como “em criação” são ideias de jogos, ainda não disponíveis. O primeiro jogo experimental já pode ser testado logo abaixo.</p>
+        <p class="catalog-note">Escolha um cartão para acessar a página própria de cada jogo. Os títulos identificados como “em criação” ainda não estão disponíveis.</p>
       </section>
 
-      <section class="mini-section" id="mini" aria-labelledby="mini-title">
-        <div class="mini-info">
-          <p class="eyebrow">◈ BÔNUS • EXPERIÊNCIA INTERATIVA</p>
-          <h2 id="mini-title">MISSÃO:<br><em>PORTAL DAS ESTRELAS</em></h2>
-          <p>Nosso jogo experimental já está disponível nesta página: encontre quatro estrelas e abra o portal. Use o teclado ou toque nas setas.</p>
-          <div class="mini-stats"><div><small>ESTRELAS</small><strong id="stars-collected">0 / 4</strong></div><div><small>MOVIMENTOS</small><strong id="moves-counter">00</strong></div><div><small>ESTADO</small><strong id="mini-state">PRONTO</strong></div></div>
-          <div class="mini-actions"><button id="play-button" type="button" class="button button-primary">▶ INICIAR</button><button id="pause-button" type="button" class="button button-outline" disabled>Ⅱ PAUSAR</button><button id="restart-button" type="button" class="button button-minor">↻ REINICIAR</button></div>
-          <div class="mini-hint">TECLADO: ← ↑ → ↓ ou W A S D · P pausa · R reinicia · H ajuda</div>
-        </div>
-        <div class="mini-console">
-          <div class="console-label"><span>◉ PLAYER 01</span><span>LEVEL 00</span></div>
-          <div class="board-frame"><div id="board" class="pixel-board" role="grid" aria-label="Mapa do minijogo Portal das Estrelas" tabindex="0"></div><div id="board-message" class="board-message">PRESSIONE INICIAR</div></div>
-          <div class="touch-controls" role="group" aria-label="Setas para movimentar o jogador">
-            <button type="button" class="dpad up" data-direction="up" aria-label="Mover para cima">▲</button>
-            <button type="button" class="dpad left" data-direction="left" aria-label="Mover para a esquerda">◀</button>
-            <button type="button" class="dpad down" data-direction="down" aria-label="Mover para baixo">▼</button>
-            <button type="button" class="dpad right" data-direction="right" aria-label="Mover para a direita">▶</button>
-          </div>
-          <p id="game-feedback" class="game-feedback" role="status" aria-live="polite">Quatro estrelas, um portal. A aventura começa aqui.</p>
-        </div>
-      </section>
     </main>
 
     <footer class="footer"><span>INTERATIVIDADE <i>✳</i> UM UNIVERSO DE POSSIBILIDADES</span><span>UM PROJETO EM DESENVOLVIMENTO • EXPERIÊNCIA ORIGINAL</span></footer>
   </div>
 
-  <div id="help-dialog" class="dialog-backdrop" hidden>
-    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="help-title" tabindex="-1">
-      <div class="dialog-header"><h2 id="help-title">MANUAL DO JOGADOR</h2><button id="help-close" class="icon-button" type="button" aria-label="Fechar ajuda">✕</button></div>
-      <p><strong>Portal das Estrelas:</strong> aperte INICIAR, mova sua personagem pelo mapa e colete todas as estrelas. Quando o portal brilhar, você venceu!</p>
-      <ul><li><kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> ou <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> — mover</li><li><kbd>P</kbd> — pausar ou continuar</li><li><kbd>R</kbd> — reiniciar</li><li><kbd>H</kbd> ou <kbd>?</kbd> — abrir/fechar ajuda</li><li><kbd>M</kbd> — ativar/desativar sons</li><li><kbd>Esc</kbd> — fechar menus</li></ul>
-      <p>No celular, use as quatro setas na parte inferior. O jogo não exige áudio nem limite de tempo. Você pode pausar quando quiser.</p>
-      <button class="button button-primary" id="help-ok" type="button">ENTENDI ✓</button>
-    </div>
-  </div>
   <script src="./portal.js" defer></script>
   <script src="./roadmap.js" defer></script>
 </body>
