@@ -21,8 +21,8 @@
       target:i===0?"source":i===l.path.length-1?"goal":l.houses.includes(i)?"house":"path"
     }));
     const map=new Map(cells.map((c,i)=>[key(c.x,c.y),i]));
-    const init=cells.map((c,i)=>i===0||i===cells.length-1?0:((i*3+l.seed)%3)+1);
-    const optimal=init.reduce((sum,r)=>sum+Math.min(r,4-r),0);
+    const init=cells.map((c,i)=>i===0||i===cells.length-1?0:((i*7+l.seed*(i%3+1))%3)+1);
+    const optimal=init.reduce((sum,r)=>sum+(r?4-r:0),0);
     return {...l,cells,map,init,optimal};
   });
   function rotateArms(arms,steps){return arms.map(d=>dirs[(dirs.indexOf(d)+steps)%4]);}
@@ -133,7 +133,7 @@
     const l=prepped[index];
     const id=l.cells.findIndex((c,i)=>c.target!=="source"&&c.target!=="goal"&&rotations[i]!==0);
     if(id<0){setFeedback("As peças já estão alinhadas. Confira a conexão da luz!");return;}
-    hints++;const r=rotations[id];rotations[id]=0;moves+=Math.min(4-r,r);
+    hints++;const r=rotations[id];rotations[id]=0;moves+=4-r;
     const done=evaluate();
     if(done){complete();return;}
     draw(id);setFeedback("DICA: alinhei uma peça do caminho. Você consegue terminar o restante!");
