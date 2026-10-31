@@ -12,7 +12,7 @@
   const $=s=>document.querySelector(s),grid=$("#board"),feedback=$("#feedback"),status=$("#status");
   const modal=$("#manual"),pauseLayer=$("#pause-layer"),continueBtn=$("#continue"),pauseBtn=$("#pause"),resetBtn=$("#reset"),hintBtn=$("#hint"),helpBtn=$("#help");
   const MAX_LEVELS=levels.length,storeKey="interatividade_luz_no_caminho_v1";
-  let index=0,rotations=[],light=new Set(),moves=0,hints=0,mode="idle",best=Array(MAX_LEVELS).fill(0),unlocked=1,helpFocus=null;
+  let index=0,rotations=[],light=new Set(),moves=0,hints=0,mode="idle",best=Array(MAX_LEVELS).fill(0),unlocked=1,helpFocus=null,wasPlayingBeforeHelp=false;
   function key(x,y){return x+","+y;}
   function dirOf(a,b){if(b[0]===a[0]+1)return "e";if(b[0]===a[0]-1)return "w";if(b[1]===a[1]+1)return "s";if(b[1]===a[1]-1)return "n";throw new Error("Caminho não adjacente");}
   const prepped=levels.map(l=>{
@@ -141,14 +141,30 @@
   }
   function togglePause(){if(mode==="playing"){mode="paused";draw();setFeedback("Partida pausada.");}else if(mode==="paused"){mode="playing";draw();setFeedback("Partida retomada.");}}
   function showManual(){
-    helpFocus=document.activeElement;modal.hidden=false;
-    const openBefore=mode;if(openBefore==="playing"){mode="paused";draw();}
+    helpFocus=document.activeElement;wasPlayingBeforeHelp=mode==="playing";
+    modal.hidden=false;
+    if(wasPlayingBeforeHelp){mode="paused";draw();}
     $("#manual-close").focus();
   }
-  function hideManual(){modal.hidden=true;if(helpFocus?.focus)helpFocus.focus();}
+  function hideManual(){
+    modal.hidden=true;
+    if(wasPlayingBeforeHelp&&mode==="paused"){
+      mode="playing";draw();setFeedback("Partida retomada.");
+    }
+    wasPlayingBeforeHelp=false;
+    if(helpFocus?.focus)helpFocus.focus();
+  }
   function next(){if(mode!=="won")return;$("#conclusion").hidden=true;start(index===MAX_LEVELS-1?0:index+1);}
   function handler(e){
-    if(!modal.hidden){if(e.key==="Escape"||e.key.toLowerCase()==="h"||e.key==="?"){e.preventDefault();hideManual();}return;}
+    if(!modal.hidden){
+      if(e.key==="Escape"||e.key.toLowerCase()==="h"||e.key==="?"){e.preventDefault();hideManual();return;}
+      if(e.key==="Tab"){
+        const first=$("#manual-close"),last=$("#manual-ok");
+        if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+        else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+      }
+      return;
+    }
     const tag=document.activeElement?.tagName;
     if(["INPUT","TEXTAREA","SELECT"].includes(tag))return;
     if(e.key.toLowerCase()==="p"){e.preventDefault();togglePause();}
