@@ -5,6 +5,7 @@ on:
     paths:
       - 'index.html'
       - 'styles.css'
+      - 'footer.css'
       - 'portal.js'
       - 'games.json'
       - 'roadmap.json'
@@ -25,6 +26,7 @@ jobs:
         run: |
           test -s index.html
           test -s styles.css
+          test -s footer.css
           test -s portal.js
           test -s games.json
           test -s roadmap.json
@@ -34,7 +36,7 @@ jobs:
       - name: Preparar pasta publica
         run: |
           mkdir -p ./publish
-          cp index.html styles.css portal.js games.json roadmap.json roadmap.js ./publish/
+          cp index.html styles.css footer.css portal.js games.json roadmap.json roadmap.js ./publish/
           if [ -d games ]; then cp -R games ./publish/; fi
       - name: Enviar para hospedagem (FTP)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
