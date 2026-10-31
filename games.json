@@ -11,6 +11,17 @@
     "url": "./games/portal-das-estrelas/"
   },
   {
+    "id": "luz-no-caminho",
+    "title": "Luz no Caminho",
+    "description": "Gire os caminhos, leve a luz até as casas e conclua três missões inspiradas no Evangelho. Um puzzle cristão original.",
+    "symbol": "✦",
+    "category": "biblia",
+    "art": "scripture",
+    "tag": "PUZZLE CRISTÃO / 3 FASES",
+    "status": "live",
+    "url": "./games/luz-no-caminho/"
+  },
+  {
     "id": "pareie-a-letra",
     "title": "Pareie a Letra",
     "description": "Ligue uma letra escrita em português à mão correspondente no alfabeto manual da Libras. Três fases e estrelas.",
