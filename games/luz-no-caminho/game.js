@@ -131,7 +131,7 @@
   function hint(){
     if(mode!=="playing")return;
     const l=prepped[index];
-    const id=l.cells.findIndex((c,i)=>c.target==="path"&&rotations[i]!==0);
+    const id=l.cells.findIndex((c,i)=>c.target!=="source"&&c.target!=="goal"&&rotations[i]!==0);
     if(id<0){setFeedback("As peças já estão alinhadas. Confira a conexão da luz!");return;}
     hints++;const r=rotations[id];rotations[id]=0;moves+=Math.min(4-r,r);
     const done=evaluate();
