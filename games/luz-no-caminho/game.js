@@ -21,7 +21,7 @@
       target:i===0?"source":i===l.path.length-1?"goal":l.houses.includes(i)?"house":"path"
     }));
     const map=new Map(cells.map((c,i)=>[key(c.x,c.y),i]));
-    const init=cells.map((c,i)=>i===0||i===cells.length-1?0:((i*7+l.seed*(i%3+1))%3)+1);
+    const init=cells.map((c,i)=>i===0||i===cells.length-1?0:(Math.floor(Math.abs(Math.sin((i+1)*12.9898+l.seed*78.233))*10000)%3)+1);
     const optimal=init.reduce((sum,r)=>sum+(r?4-r:0),0);
     return {...l,cells,map,init,optimal};
   });
@@ -108,6 +108,7 @@
   }
   function start(i){
     index=i;const l=prepped[index];
+    $("#conclusion").hidden=true;
     rotations=l.init.slice();moves=0;hints=0;mode="playing";
     evaluate();draw();setFeedback("Gire as trilhas para levar a luz até a casa. As peças iluminadas mostram seu progresso.");
   }
