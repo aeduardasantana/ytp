@@ -53,45 +53,5 @@
     "tag": "RECONHECIMENTO / BETA",
     "status": "live",
     "url": "./games/letra-relampago/"
-  },
-  {
-    "id": "ordem-historia",
-    "title": "Ordem da História",
-    "description": "Coloque os acontecimentos bíblicos em ordem e desbloqueie novas sequências.",
-    "symbol": "⌛",
-    "category": "biblia",
-    "art": "scripture",
-    "tag": "HISTÓRIA / LÓGICA",
-    "status": "planned"
-  },
-  {
-    "id": "pergaminhos",
-    "title": "Pergaminhos Perdidos",
-    "description": "Responda desafios católicos e encontre partes de um mapa de descobertas.",
-    "symbol": "✉",
-    "category": "biblia",
-    "art": "scripture",
-    "tag": "QUIZ / AVENTURA",
-    "status": "planned"
-  },
-  {
-    "id": "quem-sou-eu",
-    "title": "Quem Sou Eu?",
-    "description": "Descubra personagens da Bíblia por pistas progressivas e conquistas secretas.",
-    "symbol": "♟",
-    "category": "biblia",
-    "art": "scripture",
-    "tag": "PERSONAGENS / PISTAS",
-    "status": "planned"
-  },
-  {
-    "id": "blocos",
-    "title": "Blocos do Conhecimento",
-    "description": "Encaixe peças originais e revele símbolos e cenários em desafios de raciocínio.",
-    "symbol": "▦",
-    "category": "puzzle",
-    "art": "blocks",
-    "tag": "BLOCOS / QUEBRA-CABEÇA",
-    "status": "planned"
   }
 ]
