@@ -44,4 +44,15 @@ A decisão de arquitetura é: **home = apresentação, notícias, roadmap e cat�
 - **Projetos futuros anunciados** devem ter identidade autoral forte e escopo substancial: mecânicas originais com profundidade, progressão, direção de arte própria, narrativa ou universo distinguível, e potencial de expansão. Não basta renomear quiz ou memória.
 - **As Alianças** é projeto principal. Não dispersar recursos de desenvolvimento para minijogos propostos sem execução.
 - Os quatro conceitos anteriores *Ordem da História*, *Pergaminhos Perdidos*, *Quem Sou Eu?* e *Blocos do Conhecimento* foram **retirados do catálogo público**; seu registro documental permanece como histórico, não como compromisso de lançamento.
-- O catálogo atual conserva os cinco jogos já implementados, inclusive betas de datilologia. Criação futura só deve ser anunciada com escopo aprovada e substância proporcional à identidade do projeto.
+- O catálogo público contém os jogos já implementados, inclusive betas de datilologia e o minijogo cristão Luz no Caminho. Criação futura só deve ser anunciada com escopo aprovada e substância proporcional à identidade do projeto.
+
+## Jogo cristão simples e concluído — Luz no Caminho (31/10/2026)
+- URL individual: https://interatividade.compassrosesystems.com.br/games/luz-no-caminho/
+- Categoria: `biblia`; jogo publicado, NÃO um backlog simples anunciado para o futuro.
+- Propósito: reforçar a identidade cristã do portal de maneira leve, visual e original.
+- Mecânica: puzzle de trilhas rotativas com três tabuleiros de dificuldade crescente, peças fixas de origem/destino, conexão luminosa, dicas, pausa, reinício, desbloqueio de fases e recordes (1–3 estrelas).
+- Inspiração bíblica e editorial: Mateus 5,14–16. Trata-se de metáfora lúdica original, **não reconstituição dos acontecimentos do Evangelho**. A redação não copia versículos; referência validada em fonte litúrgica católica.
+- Arquivos: `games/luz-no-caminho/index.html`, `game.css`, `game.js`. Sem framework externo ou imagens de terceiros; arte e trilhas desenhadas em CSS. Não exige login nem tem cronômetro.
+- Progresso: `localStorage` no navegador web, sem sincronização automática com o YouTube. Uma versão Playables teria de incorporar SDK e adaptador próprio.
+- QA programático antes da publicação: os três tabuleiros foram percorridos até vitória no motor real através de simulação do DOM; resultados 9/9, 12/12 e 13/13, com salvamento recordes 3/3/3. Verificação de sintaxe, arquivos, navegação e workflow de deploy.
+- Os controles públicos precisam de verificação visual adicional no navegador real; deploy FTP com GitHub Actions reportou sucesso. Não afirmar que há certificação Playables.
